@@ -36,16 +36,32 @@ class News extends Component {
 
   render() {
     return (
-      <div style={{ fontSize: 24, marginTop: 20 }}>
+      <div style={{ fontSize: 28, marginTop: 20 }}>
         <ul style={{
           padding: 10,
           textAlign: 'left',
-          marginLeft: 28,
-          textIndent: -22,
           listStyleType: 'none'
         }}>
           {this.state.items.map((item, i) => (
-            <li key={i}>{numerals[i]} {item.title}</li>
+            <li
+              style={{whiteSpace: 'nowrap'}}
+              key={i}
+            >
+              <div
+                style={{
+                    display: 'inline-block',
+                    verticalAlign: 'top'
+                  }}
+              >{numerals[i]}</div>
+              <div
+                style={{
+                  display: 'inline-block',
+                  verticalAlign: 'top',
+                  whiteSpace: 'normal',
+                  marginLeft: 10
+                }}
+              >{item.title}</div>
+            </li>
           ))}
         </ul>
       </div>
