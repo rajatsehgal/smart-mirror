@@ -36,9 +36,9 @@ class News extends Component {
 
   render() {
     return (
-      <div style={{ fontSize: 28, marginTop: 20 }}>
+      <div style={{ fontSize: 28, marginTop: 10 }}>
         <ul style={{
-          padding: 10,
+          padding: 20,
           textAlign: 'left',
           listStyleType: 'none'
         }}>
