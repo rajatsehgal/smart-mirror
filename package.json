@@ -1,0 +1,48 @@
+{
+  "name": "@rajatsehgal/smart-mirror",
+  "version": "0.0.1",
+  "description": "An app that acts as the display for your smart mirror.",
+  "main": "index.js",
+  "scripts": {
+    "serve": "http-server . -p 6565 -s",
+    "build": "webpack -d",
+    "watch": "webpack -d --watch",
+    "prod": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://git@github.com:rajatsehgal/smart-mirror.git"
+  },
+  "keywords": [
+    "smart mirror",
+    "mirror",
+    "dashboard"
+  ],
+  "author": "rajatsehgal <rajatsehgal1988@gmail.com> (rajatsehgal.github.io)",
+  "license": "ISC",
+  "homepage": "https://github.com/rajatsehgal/smart-mirror",
+  "devDependencies": {
+    "babel-core": "latest",
+    "babel-eslint": "latest",
+    "babel-loader": "latest",
+    "babel-polyfill": "latest",
+    "babel-preset-es2015": "latest",
+    "babel-preset-react": "latest",
+    "babel-preset-stage-1": "latest",
+    "babel-register": "latest",
+    "babel-runtime": "latest",
+    "body-parser": "latest",
+    "eslint": "latest",
+    "eslint-config-airbnb": "latest",
+    "eslint-plugin-react": "latest",
+    "isomorphic-fetch": "latest",
+    "radium": "latest",
+    "webpack": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "http-server": "latest",
+    "moment": "latest",
+    "moment-timezone": "latest",
+    "fetch-jsonp": "latest"
+  }
+}
