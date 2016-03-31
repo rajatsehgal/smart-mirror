@@ -56,7 +56,7 @@ class Landing extends Component {
   }
 
   handleClick = () => {
-    let url = 'http://rajatsehgal.github.io/smart-mirror/?';
+    let url = 'https://rajatsehgal.github.io/smart-mirror/?';
 
     let apiKeys = {};
     Object.keys(this.state).forEach(key => {

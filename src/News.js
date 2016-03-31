@@ -3,7 +3,7 @@ import Radium from 'radium';
 
 import fetch from 'isomorphic-fetch';
 
-const API_ENDPOINT = 'http://api.nytimes.com/svc/topstories/v1/world.json';
+const API_ENDPOINT = 'https://api.nytimes.com/svc/topstories/v1/world.json';
 const numerals = ['௧', '௨', '௩', '௪', '௫'];
 
 class News extends Component {
