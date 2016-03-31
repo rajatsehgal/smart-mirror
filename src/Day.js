@@ -25,7 +25,7 @@ class Day extends Component {
 
   render() {
     return (
-      <div style={{ marginTop: 20}}>{this.state.dayStr}</div>
+      <div style={{ paddingTop: 20}}>{this.state.dayStr}</div>
     );
   }
 }

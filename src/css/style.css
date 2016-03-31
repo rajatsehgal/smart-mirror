@@ -6,11 +6,6 @@ html, body, #app {
     overflow: hidden;
 }
 
-#app {
+body {
     font-family: 'Open Sans', sans-serif;
-    font-size: 40px;
-    color: white;
-    background: black;
-    text-align: center;
-    font-weight: lighter;
 }

@@ -43,6 +43,7 @@
     "http-server": "latest",
     "moment": "latest",
     "moment-timezone": "latest",
-    "fetch-jsonp": "latest"
+    "fetch-jsonp": "latest",
+    "query-string": "latest"
   }
 }
