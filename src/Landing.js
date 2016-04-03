@@ -40,7 +40,7 @@ const apiKeys = [
     placeholder: 'Google Maps',
     link: 'https://developers.google.com/maps/documentation/javascript/get-api-key'
   },
-  { key: 'nyTimeAPIKey', placeholder: 'The New York Times', link: 'http://developer.nytimes.com/' }
+  { key: 'nyTimesAPIKey', placeholder: 'The New York Times', link: 'http://developer.nytimes.com/' }
 ];
 
 class Landing extends Component {
@@ -51,7 +51,7 @@ class Landing extends Component {
       url: 'You url will appear here once you fill out the above and hit Generate Url',
       forecastioAPIKey: '',
       googleMapsAPIKey: '',
-      nyTimeAPIKey: ''
+      nyTimesAPIKey: ''
     };
   }
 
