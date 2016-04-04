@@ -4,7 +4,6 @@ import Radium from 'radium';
 import fetch from 'isomorphic-fetch';
 
 const API_ENDPOINT = 'https://api.nytimes.com/svc/topstories/v1/world.json';
-const numerals = ['௧', '௨', '௩', '௪', '௫'];
 
 class News extends Component {
 
@@ -38,30 +37,10 @@ class News extends Component {
     return (
       <div style={{ fontSize: 28, marginTop: 10 }}>
         <ul style={{
-          padding: 20,
-          textAlign: 'left',
-          listStyleType: 'none'
+          textAlign: 'left'
         }}>
           {this.state.items.map((item, i) => (
-            <li
-              style={{whiteSpace: 'nowrap'}}
-              key={i}
-            >
-              <div
-                style={{
-                    display: 'inline-block',
-                    verticalAlign: 'top'
-                  }}
-              >{numerals[i]}</div>
-              <div
-                style={{
-                  display: 'inline-block',
-                  verticalAlign: 'top',
-                  whiteSpace: 'normal',
-                  marginLeft: 10
-                }}
-              >{item.title}</div>
-            </li>
+            <li key={i}>{item.title}</li>
           ))}
         </ul>
       </div>
