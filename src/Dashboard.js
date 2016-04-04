@@ -19,7 +19,8 @@ const Dashboard = ({forecastioAPIKey, googleMapsAPIKey, nyTimesAPIKey, lat, lon}
     <Day/>
     <Time/>
     <Weather apiKey={forecastioAPIKey} latitude={lat} longitude={lon}/>
-    <Travel apiKey={googleMapsAPIKey} latitude={lat} longitude={lon}/>
+    <Travel apiKey={googleMapsAPIKey} latitude={lat} longitude={lon}
+            destinations={[{ name: 'MathWorks', logo: 'src/images/mathworks.png', address: '1 Apple Hill Drive, Natick, MA'}, {name: 'Staples', logo: 'src/images/staples.png', address: '500 Staples Drive, Framingham, MA'}]}/>
     <News apiKey={nyTimesAPIKey}/>
   </div>
 );

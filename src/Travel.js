@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import Radium from 'radium';
 
 class Travel extends Component {
@@ -6,8 +6,7 @@ class Travel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      brightcove: "",
-      symbotic: ""
+      travelTimes: []
     };
   }
 
@@ -27,26 +26,16 @@ class Travel extends Component {
   }
 
   fetchDuration = () => {
-    var origin = new google.maps.LatLng(this.props.latitude, this.props.longitude);
-    var brightcove = "290 Congress Street, Boston, MA";
-    this._service.getDistanceMatrix({
-      origins: [origin],
-      destinations: [brightcove],
-      travelMode: google.maps.TravelMode.TRANSIT
-    }, (response) => {
-      this.setState({
-        brightcove: response.rows[0].elements[0].duration.text
-      });
-    });
+    var origins = [new google.maps.LatLng(this.props.latitude, this.props.longitude)];
+    var destinations = this.props.destinations.map(destination => destination.address);
 
-    var symbotic = "200 Research Drive, Wilmington, MA";
     this._service.getDistanceMatrix({
-      origins: [origin],
-      destinations: [symbotic],
+      origins,
+      destinations,
       travelMode: google.maps.TravelMode.DRIVING
     }, (response) => {
       this.setState({
-        symbotic: response.rows[0].elements[0].duration.text
+        travelTimes: response.rows[0].elements.map(element => element.duration.text)
       });
     });
   };
@@ -54,19 +43,34 @@ class Travel extends Component {
   render() {
     return (
       <div style={{ marginTop: 30}}>
-        <div>
-          {this.state.brightcove} <img width="45" height="45" src="src/images/transit.png" style={{
-          verticalAlign: 'middle'
-        }}/> to <img style={{verticalAlign: 'middle'}} width="45" height="45"
-                     src="src/images/brightcove.png"/></div>
-        <div style={{ marginTop: 10 }}>
-          {this.state.symbotic} <img width="45" height="45" src="src/images/car.png" style={{
-          verticalAlign: 'middle'
-        }}/> to <img style={{verticalAlign: 'middle'}} width="45" height="45"
-                     src="src/images/symbotic.png"/></div>
+        {
+          this.state.travelTimes.map((time, i) => (
+            <div key={this.props.destinations[i].name}>
+              {this.state.travelTimes[i]} <img
+              width="45" height="45" src="src/images/car.png"
+              style={{
+                verticalAlign: 'middle'
+              }}/> to {this.props.destinations[i].logo ? <img style={{verticalAlign: 'middle'}}
+                                                        height="35"
+                                                        src={this.props.destinations[i].logo}/> : this.props.destinations[i].name}
+            </div>
+          ))
+        }
       </div>
     );
   }
 }
+
+Travel.propTypes = {
+  destinations: PropTypes.arrayOf(PropTypes.shape({
+    logo: React.PropTypes.string,
+    name: React.PropTypes.string.isRequired,
+    address: React.PropTypes.string.isRequired
+  }))
+};
+
+Travel.defaultProps = {
+  destinations: []
+};
 
 export default Radium(Travel);
