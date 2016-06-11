@@ -6,7 +6,6 @@ import Time from './Time';
 import Weather from './Weather';
 import Travel from './Travel';
 import News from './News';
-import Gecko from './Gecko';
 
 const Dashboard = ({ forecastioAPIKey, googleMapsAPIKey, nyTimesAPIKey, lat, lon }) => (
   <div
@@ -36,7 +35,6 @@ const Dashboard = ({ forecastioAPIKey, googleMapsAPIKey, nyTimesAPIKey, lat, lon
       }]}
     />
     <News apiKey={nyTimesAPIKey} />
-    <Gecko />
   </div>
 );
 
