@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import Radium from 'radium';
 
 class Travel extends Component {
@@ -16,7 +16,7 @@ class Travel extends Component {
       this._service = new google.maps.DistanceMatrixService();
       this.fetchDuration();
     };
-    let script = document.createElement("script");
+    const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${this.props.apiKey}&callback=googleMapsLoaded`;
     document.body.appendChild(script);
   }
@@ -26,8 +26,8 @@ class Travel extends Component {
   }
 
   fetchDuration = () => {
-    var origins = [new google.maps.LatLng(this.props.latitude, this.props.longitude)];
-    var destinations = this.props.destinations.map(destination => destination.address);
+    const origins = [new google.maps.LatLng(this.props.latitude, this.props.longitude)];
+    const destinations = this.props.destinations.map(destination => destination.address);
 
     this._service.getDistanceMatrix({
       origins,
@@ -42,17 +42,24 @@ class Travel extends Component {
 
   render() {
     return (
-      <div style={{ marginTop: 30}}>
+      <div style={{ marginTop: 30 }}>
         {
           this.state.travelTimes.map((time, i) => (
             <div key={this.props.destinations[i].name}>
               {this.state.travelTimes[i]} <img
-              width="45" height="45" src="src/images/car.png"
-              style={{
-                verticalAlign: 'middle'
-              }}/> to {this.props.destinations[i].logo ? <img style={{verticalAlign: 'middle'}}
-                                                        height="35"
-                                                        src={this.props.destinations[i].logo}/> : this.props.destinations[i].name}
+                role="presentation"
+                width="45"
+                height="45"
+                src="src/images/car.png"
+                style={{
+                  verticalAlign: 'middle'
+                }}
+              /> to {this.props.destinations[i].logo ? <img
+                role="presentation"
+                style={{ verticalAlign: 'middle' }}
+                height="45"
+                src={this.props.destinations[i].logo}
+              /> : this.props.destinations[i].name}
             </div>
           ))
         }
@@ -62,10 +69,13 @@ class Travel extends Component {
 }
 
 Travel.propTypes = {
+  apiKey: PropTypes.string,
+  latitude: PropTypes.number,
+  longitude: PropTypes.number,
   destinations: PropTypes.arrayOf(PropTypes.shape({
-    logo: React.PropTypes.string,
-    name: React.PropTypes.string.isRequired,
-    address: React.PropTypes.string.isRequired
+    logo: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired
   }))
 };
 

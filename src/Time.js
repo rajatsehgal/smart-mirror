@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Radium from 'radium';
 import moment from 'moment';
 
@@ -20,7 +20,7 @@ class Time extends Component {
   }
 
   generateTimeStr() {
-    return moment().format("h:mm a");
+    return moment().format('h:mm a');
   }
 
   render() {

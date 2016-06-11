@@ -4,6 +4,7 @@
   "rules": {
     "comma-dangle": 0,
     "new-cap": 0, //Remove this once decorators are supported by Babel
-    "react/jsx-no-bind": 0
+    "react/jsx-no-bind": 0,
+    "no-underscore-dangle": 0 //Needed because of mongoose _id
   }
 }

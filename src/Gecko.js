@@ -1,34 +1,34 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Radium from 'radium';
 
 import fetch from 'isomorphic-fetch';
 
-const API_ENDPOINT = 'https://api.nytimes.com/svc/topstories/v2/world.json';
+const API_ENDPOINT = 'http://komodo.mathworks.com/main/gecko/jsonrest?login=rsehgal&Owner=Rajat%20Sehgal&Type=Bug';
 
-class News extends Component {
+class Gecko extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      items: []
+      gecks: []
     };
-    this.fetchNews();
+    this.fetchGecks();
   }
 
   componentDidMount() {
-    this._interval = setInterval(this.fetchNews, 30 * 60000);
+    this._interval = setInterval(this.fetchGecks, 30 * 60000);
   }
 
   componentWillUnmount() {
     clearInterval(this._interval);
   }
 
-  fetchNews = () => {
-    fetch(`${API_ENDPOINT}?api-key=${this.props.apiKey}`)
+  fetchGecks = () => {
+    fetch(API_ENDPOINT)
       .then((response) => response.json())
       .then((data) => {
         this.setState({
-          items: data.results.slice(0, 5)
+          gecks: data.slice(0, 5)
         });
       });
   };
@@ -41,8 +41,8 @@ class News extends Component {
             textAlign: 'left'
           }}
         >
-          {this.state.items.map((item, i) => (
-            <li key={i}>{item.title}</li>
+          {this.state.gecks.map((geck, i) => (
+            <li key={i}>{geck.Summary}</li>
           ))}
         </ul>
       </div>
@@ -50,8 +50,4 @@ class News extends Component {
   }
 }
 
-News.propTypes = {
-  apiKey: PropTypes.string
-};
-
-export default Radium(News);
+export default Radium(Gecko);

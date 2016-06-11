@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Radium from 'radium';
 import queryString from 'query-string';
 
@@ -56,17 +56,17 @@ class Landing extends Component {
   }
 
   handleClick = () => {
-    let url = 'https://rajatsehgal.github.io/smart-mirror/?';
+    const url = 'https://rajatsehgal.github.io/smart-mirror/?';
 
-    let apiKeys = {};
+    const keys = {};
     Object.keys(this.state).forEach(key => {
       if (key.endsWith('Key')) {
-        apiKeys[key] = this.state[key];
+        keys[key] = this.state[key];
       }
     });
 
     this.setState({
-      url: url + queryString.stringify(apiKeys)
+      url: url + queryString.stringify(keys)
     });
   };
 
@@ -75,25 +75,31 @@ class Landing extends Component {
   };
 
   render() {
-    const buttonDisabled = this.state.forecastioAPIKey === '' || this.state.googleMapsAPIKey === '' || this.state.nyTimeAPIKey === '';
+    const buttonDisabled = this.state.forecastioAPIKey === ''
+      || this.state.googleMapsAPIKey === ''
+      || this.state.nyTimeAPIKey === '';
 
     return (
-      <div style={{
+      <div
+        style={{
           textAlign: 'center',
           padding: 20
-        }}>
+        }}
+      >
         <div
           style={{
             display: 'inline-block',
             fontSize: 28
-          }}>Smart Mirror|</div>
+          }}
+        >Smart Mirror|</div>
         <div
           style={{
             display: 'inline-block',
             fontSize: 28,
             color: '#777',
             transform: 'scale(-1, 1)'
-          }}>Smart Mirror</div>
+          }}
+        >Smart Mirror</div>
         <div
           style={{
             marginTop: 20,
@@ -110,8 +116,13 @@ class Landing extends Component {
               style={inputStyle}
               value={this.state[obj.key]}
               onChange={this.handleInputChange.bind(this, obj.key)}
-            /> <a key={obj.key} style={infoStyle} href={obj.link} title={obj.link}
-                  target="_blank">i</a>
+            /> <a
+              key={obj.key}
+              style={infoStyle}
+              href={obj.link}
+              title={obj.link}
+              target="_blank"
+            >i</a>
           </div>
         ))}
         <button
@@ -138,7 +149,8 @@ class Landing extends Component {
             fontSize: '14px',
             color: '#333',
             marginTop: 20
-          }}>{this.state.url}</div>
+          }}
+        >{this.state.url}</div>
       </div>
     );
   }

@@ -5,11 +5,11 @@ import queryString from 'query-string';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
 
-let params = Object.assign({}, queryString.parse(window.location.search));
+const params = Object.assign({}, queryString.parse(window.location.search));
 
 if (!params.forecastioAPIKey) {
   ReactDom.render((
-    <Landing/>
+    <Landing />
   ), document.getElementById('app'));
 } else {
   navigator.geolocation.getCurrentPosition((position) => {

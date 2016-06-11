@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Radium from 'radium';
 import moment from 'moment';
 
@@ -20,12 +20,12 @@ class Day extends Component {
   }
 
   generateDayStr() {
-    return moment().format("dddd, MMMM Do");
+    return moment().format('dddd, MMMM Do');
   }
 
   render() {
     return (
-      <div style={{ paddingTop: 20}}>{this.state.dayStr}</div>
+      <div style={{ paddingTop: 20 }}>{this.state.dayStr}</div>
     );
   }
 }
