@@ -3,8 +3,6 @@ import Radium from 'radium';
 
 import fetch from 'isomorphic-fetch';
 
-const API_ENDPOINT = 'http://komodo.mathworks.com/main/gecko/jsonrest?login=rsehgal&Owner=Rajat%20Sehgal&Type=Bug';
-
 class Gecko extends Component {
 
   constructor(props) {
